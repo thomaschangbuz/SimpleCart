@@ -18,9 +18,9 @@ $products = [
 <h2>Product List:</h2>
 <?php foreach ($products as $id => $product) {?>
 <div>
-	<span>Product Name:<?php echo $product['name']?></span>|
-	<span>Price:<?php echo number_format($product['price'], 2)?></span>|
-	<span><a href="add.php?id=<?=$id?>&name=<?=$product['name']?>&price=<?=$product['price']?>&quantity=1">add to cart</a></span>
+    <span>Product Name:<?php echo $product['name']?></span>|
+    <span>Price:<?php echo number_format($product['price'], 2)?></span>|
+    <span><a href="add.php?id=<?=$id?>&name=<?=$product['name']?>&price=<?=$product['price']?>&quantity=1">add to cart</a></span>
 </div>
 <?php }?>
 
@@ -34,11 +34,11 @@ if (false == empty($items))
     foreach ($items as $item) {
 ?>
 <div>
-	<span>Product Name:<?php echo $item->name?></span>|
-	<span>Price:<?php echo $item->getPrice()?></span>|
-	<span>Quantity:<?php echo $item->quantity?></span>|
-	<span>Total:<?php echo $item->getTotal()?></span>|
-	<span><a href="remove.php?id=<?=$item->id?>&quantity=<?=$item->quantity?>">remove</a></span>
+    <span>Product Name:<?php echo $item->name?></span>|
+    <span>Price:<?php echo $item->getPrice()?></span>|
+    <span>Quantity:<?php echo $item->quantity?></span>|
+    <span>Total:<?php echo $item->getTotal()?></span>|
+    <span><a href="remove.php?id=<?=$item->id?>&quantity=<?=$item->quantity?>">remove</a></span>
 </div>
 <?php
     }
