@@ -80,7 +80,7 @@ class Cart extends AbstractCart {
             return false;
         }
         
-        $this->items = unserialize($_COOKIE[$this->identity]);//@todo handle exception
+        $this->items = unserialize($_COOKIE[$this->identity]);
         
         return true;
     }
@@ -90,7 +90,7 @@ class Cart extends AbstractCart {
      * @see \Thomas\SimpleCart\AbstractCart::store()
      */
     protected function store() {
-        setcookie($this->identity, serialize($this->items));//@todo handle exception
+        setcookie($this->identity, serialize($this->items));
         return true;
     }
     
