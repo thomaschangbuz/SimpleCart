@@ -26,23 +26,23 @@ $products = [
 
 <h2>Cart Products:</h2>
 <?php 
-    $cart = new Cart();
-    $items = $cart->getAll();
-    
-    if (false == empty($items))
-    {
-        foreach ($items as $item) {
+$cart = new Cart();
+$items = $cart->getAll();
+
+if (false == empty($items))
+{
+    foreach ($items as $item) {
 ?>
-    <div>
-    	<span>Product Name:<?php echo $item->name?></span>|
-    	<span>Price:<?php echo $item->getPrice()?></span>|
-    	<span>Quantity:<?php echo $item->quantity?></span>|
-    	<span>Total:<?php echo $item->getTotal()?></span>|
-    	<span><a href="remove.php?id=<?=$item->id?>&quantity=<?=$item->quantity?>">remove</a></span>
-    </div>
+<div>
+	<span>Product Name:<?php echo $item->name?></span>|
+	<span>Price:<?php echo $item->getPrice()?></span>|
+	<span>Quantity:<?php echo $item->quantity?></span>|
+	<span>Total:<?php echo $item->getTotal()?></span>|
+	<span><a href="remove.php?id=<?=$item->id?>&quantity=<?=$item->quantity?>">remove</a></span>
+</div>
 <?php
-        }
-    } else {
+    }
+} else {
 ?>
-	<div>Empty</div>
+<div>Empty</div>
 <?php }?>
