@@ -9,6 +9,7 @@ class Cart extends AbstractCart {
     private $identity = 'DEFAULT';
     
     public function __construct($identity = null) {
+        session_start();
         if ($identity) {
             $this->identity = $identity;
         }
@@ -76,11 +77,11 @@ class Cart extends AbstractCart {
      * @see \Thomas\SimpleCart\AbstractCart::restore()
      */
     protected function restore() {
-        if (empty($_COOKIE[$this->identity])) {
+        if (empty($_SESSION[$this->identity])) {
             return false;
         }
         
-        $this->items = unserialize($_COOKIE[$this->identity]);
+        $this->items = @unserialize($_SESSION[$this->identity]);
         
         return true;
     }
@@ -90,7 +91,7 @@ class Cart extends AbstractCart {
      * @see \Thomas\SimpleCart\AbstractCart::store()
      */
     protected function store() {
-        setcookie($this->identity, serialize($this->items));
+        $_SESSION[$this->identity] = serialize($this->items);
         return true;
     }
     
